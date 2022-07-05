@@ -8,8 +8,7 @@ options = Options()
 options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
 # driver = webdriver.Firefox(executable_path=r'C:\WebDrivers\geckodriver.exe', options=options)
 
-driver = webdriver.Firefox(executable_path=r'C:/usr/local/bin/geckodriver.exe', options=options)
-
+driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', options=options)
 
 
 # #第一ブロック 必要なモジュール類をインポート
