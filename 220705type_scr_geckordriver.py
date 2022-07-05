@@ -6,7 +6,9 @@ from selenium.webdriver.firefox.options import Options
 
 options = Options()
 options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
-driver = webdriver.Firefox(executable_path=r'C:\WebDrivers\geckodriver.exe', options=options)
+# driver = webdriver.Firefox(executable_path=r'C:\WebDrivers\geckodriver.exe', options=options)
+
+driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver.exe', options=options)
 
 
 
