@@ -5,7 +5,7 @@ from selenium.webdriver.firefox.options import Options
 #EC2でのエラー回避。220705"Expected browser binary location, but unable to find binary in default location, no 'moz:firefoxOptions.binary' capability provided, and no binary flag set on the command line.
 
 options = Options()
-options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox'
+options.binary_location = r'/usr/local/lib/python3.6/dist-packages/selenium/webdriver/firefox'
 # driver = webdriver.Firefox(executable_path=r'C:\WebDrivers\geckodriver.exe', options=options)
 
 driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', options=options)
@@ -90,8 +90,8 @@ import unicodedata
 #Seleinum4に必要なモジュール。(geckodriverだけかも)22705
 from selenium.webdriver.common.by import By
 
-options = webdriver.ChromeOptions()
-# options.add_argument('--headless')
+# options = webdriver.ChromeOptions()
+options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
 #TimeOutエラー対処のため、以下オプションを追加
