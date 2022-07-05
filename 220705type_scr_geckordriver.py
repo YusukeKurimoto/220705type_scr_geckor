@@ -2,7 +2,7 @@ from selenium import webdriver
 # driver = webdriver.Firefox()
 
 #EC2でのエラー回避。220705"Expected browser binary location, but unable to find binary in default location, no 'moz:firefoxOptions.binary' capability provided, and no binary flag set on the command line.
-"
+
 options = Options()
 options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
 driver = webdriver.Firefox(executable_path=r'C:\WebDrivers\geckodriver.exe', options=options)
