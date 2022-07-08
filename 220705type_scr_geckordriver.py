@@ -95,22 +95,22 @@ import unicodedata
 from selenium.webdriver.common.by import By
 
 # options = webdriver.ChromeOptions()
-options.add_argument('--headless')
-options.add_argument('--no-sandbox')
-options.add_argument('--disable-dev-shm-usage')
-#TimeOutエラー対処のため、以下オプションを追加
-options.add_argument("start-maximized")
-options.add_argument("enable-automation")
-options.add_argument("--disable-infobars")
-options.add_argument('--disable-extensions')
-options.add_argument("--disable-browser-side-navigation")
-options.add_argument("--disable-gpu")
-options.add_argument('--ignore-certificate-errors')
-options.add_argument('--ignore-ssl-errors')
+# options.add_argument('--headless')
+# options.add_argument('--no-sandbox')
+# options.add_argument('--disable-dev-shm-usage')
+# #TimeOutエラー対処のため、以下オプションを追加
+# options.add_argument("start-maximized")
+# options.add_argument("enable-automation")
+# options.add_argument("--disable-infobars")
+# options.add_argument('--disable-extensions')
+# options.add_argument("--disable-browser-side-navigation")
+# options.add_argument("--disable-gpu")
+# options.add_argument('--ignore-certificate-errors')
+# options.add_argument('--ignore-ssl-errors')
 
 
-prefs = {"profile.default_content_setting_values.notifications" : 2}
-options.add_experimental_option("prefs",prefs)
+# prefs = {"profile.default_content_setting_values.notifications" : 2}
+# options.add_experimental_option("prefs",prefs)
 #以下はエラーが出る
 # driver = new ChromeDriver(options);
 
