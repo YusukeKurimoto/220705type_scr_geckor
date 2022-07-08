@@ -2,14 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
-# driver = webdriver.Firefox()
-
-#EC2でのエラー回避。220705"Expected browser binary location, but unable to find binary in default location, no 'moz:firefoxOptions.binary' capability provided, and no binary flag set on the command line.
-
-# options = Options()
-# options.binary_location = FirefoxBinary('/usr/bin/firefox')
-# driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', options=options)
-
 options = Options()
 options.headless = True
 driver = webdriver.Firefox(options=options)
@@ -312,14 +304,14 @@ while page_count <= int(total_offer_number):
 
         except TimeoutException as e:
             logger.info("タイムアウトしました。リトライします。")
+            time.sleep(1)
             # pass  # 失敗時はスルーする。
-            continue
+            pass
         #追加。220630
         except WebDriverException:
             logger.info('エラー：WebDriverException')
-            time.sleep(3)
+            time.sleep(1)
             pass
-            continue
         except InvalidSessionIdException:
             logger.info('エラー：InvalidSessionIdException')
             time.sleep(3)
@@ -468,7 +460,7 @@ for offer_employment_url, advertising_plan in url_plan_dic.items():
             pass
         except InvalidSessionIdException:
             logger.info('エラー：InvalidSessionIdException')
-            time.sleep(3)
+            time.sleep(1)
             pass
         else:
             break  # 成功時はループを抜ける
@@ -1439,12 +1431,12 @@ for offer_employment_url, advertising_plan in url_plan_dic.items():
 
 
     #メモリ不足対策 500→300件に一度リフレッシュ 220624
-    if num % 300 == 0:
+    if num % 500 == 0:
         driver.quit()
 #         driver = webdriver.Chrome(executable_path= chrm_path, options=options)
         #Selenium4.220703
         driver = webdriver.Chrome(service=service, options=options)
-        time.sleep(18)
+        time.sleep(1)
 
 
     #最初に一度吐き出す。
@@ -1456,7 +1448,7 @@ for offer_employment_url, advertising_plan in url_plan_dic.items():
         #dfを初期化
         df_info = pd.DataFrame(data=None, columns = heading_columns)
     #300件に一度csvに追記する。
-    elif num % 100 == 0:
+    elif num % 300 == 0:
         df_info.to_csv(output_path +  tem_file_name, mode='a', header=False, encoding='utf-16', index = False)
         #dfを初期化
         df_info = pd.DataFrame(data=None, columns = heading_columns)
@@ -1468,7 +1460,7 @@ for offer_employment_url, advertising_plan in url_plan_dic.items():
         logger.info('\n' + '【' + str(num) + '件のデータ取得完了' + '】' + '\n')
 
     #追記。 220624
-    if num % 200 == 0:
+    if num % 500 == 0:
         now = datetime.datetime.now()
         now_time = f"{now:%Y-%m-%d %H:%M:%S}"
         subject = now_time + '【 ' + file_media_name + ' ' + str(num) + '件の収集が完了しました。】'
