@@ -6,11 +6,13 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 #EC2でのエラー回避。220705"Expected browser binary location, but unable to find binary in default location, no 'moz:firefoxOptions.binary' capability provided, and no binary flag set on the command line.
 
-options = Options()
-options.binary_location = FirefoxBinary('/usr/bin/firefox')
-# driver = webdriver.Firefox(executable_path=r'C:\WebDrivers\geckodriver.exe', options=options)
+# options = Options()
+# options.binary_location = FirefoxBinary('/usr/bin/firefox')
+# driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', options=options)
 
-driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', options=options)
+options = Options()
+options.headless = True
+driver = webdriver.Firefox(options=options)
 
 
 # #第一ブロック 必要なモジュール類をインポート
