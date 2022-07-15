@@ -334,7 +334,7 @@ while page_count <= int(total_offer_number):
         #closeを削除。220616
         # driver.close()
         driver.quit()
-        driver = webdriver.Chrome(executable_path= chrm_path, options=options)
+        driver = webdriver.Firefox(options=options)
 
        
     #次のページへ繰る。
@@ -1435,7 +1435,8 @@ for offer_employment_url, advertising_plan in url_plan_dic.items():
         driver.quit()
 #         driver = webdriver.Chrome(executable_path= chrm_path, options=options)
         #Selenium4.220703
-        driver = webdriver.Chrome(service=service, options=options)
+        # driver = webdriver.Chrome(service=service, options=options)
+        driver = webdriver.Firefox(options=options)
         time.sleep(1)
 
 
