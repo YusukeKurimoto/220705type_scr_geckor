@@ -335,6 +335,8 @@ while page_count <= int(total_offer_number):
         # driver.close()
         driver.quit()
         driver = webdriver.Firefox(options=options)
+        driver.set_window_size(1000, 1500)
+        time.sleep(1)
 
        
     #次のページへ繰る。
@@ -456,6 +458,7 @@ for offer_employment_url, advertising_plan in url_plan_dic.items():
             time.sleep(1)
 #             driver = webdriver.Chrome(service=service, options=options)
             driver = webdriver.Firefox()
+            driver.set_window_size(1000, 1500)
             time.sleep(1)
             pass
         except InvalidSessionIdException:
@@ -1394,6 +1397,11 @@ for offer_employment_url, advertising_plan in url_plan_dic.items():
     #例外が発生したら、その時までに取得していたデータを書き出す処理を追記。201122
     except TimeoutException:
         logger.info('エラー：TimeoutException')
+
+        driver = webdriver.Firefox(options=options)
+        driver.set_window_size(1000, 1500)
+        time.sleep(1)
+
         #5. CSVに吐き出す。
         today = datetime.datetime.today()
         media_name = 'disruption_my'
@@ -1404,6 +1412,11 @@ for offer_employment_url, advertising_plan in url_plan_dic.items():
     except WebDriverException:
 #         logger.info('エラー：WebDriverException')
         logger.info('エラー：WebDriverException')
+
+        driver = webdriver.Firefox(options=options)
+        driver.set_window_size(1000, 1500)
+        time.sleep(1)
+
         #5. CSVに吐き出す。
         today = datetime.datetime.today()
         media_name = 'disruption_type'
@@ -1437,6 +1450,7 @@ for offer_employment_url, advertising_plan in url_plan_dic.items():
         #Selenium4.220703
         # driver = webdriver.Chrome(service=service, options=options)
         driver = webdriver.Firefox(options=options)
+        driver.set_window_size(1000, 1500)
         time.sleep(1)
 
 
